@@ -1,0 +1,86 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 0px;
+}
+
+.container{
+    margin:auto;
+    width: 80%;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-rows: 1fr;
+    justify-content: center;
+}
+
+.recipe{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.recipe:hover{
+    transform: scale(1.05);
+}
+
+.recipe img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-title{
+    background-color: white;
+    width:100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    vertical-align: middle;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#title{
+    margin: 0px 0px 0px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgb(50, 50, 50);
+    /* vertical-align: middle; */
+}
+
+#prep{
+    margin: 0px 0px 0px 10px;
+    font-size: 14px;
+    color: rgb(148, 148, 148);
+}
+
+.pagination{
+    margin: 100px 0px 50px 0px;
+    text-align: center;
+}
+/* Pagination links */
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: rgb(55, 194, 20);
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;}
