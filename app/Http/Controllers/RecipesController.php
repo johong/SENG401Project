@@ -12,9 +12,19 @@ class RecipesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($recipeArray)
     {
-        //
+        // if ($recipeArray == null)
+
+        // Get just the recipe name, image, and ID.
+        $recipes = [];
+        foreach ($recipeArray as $recipe) {
+          $newRecipe['name'] = $recipe->title;
+          $newRecipe['image'] = $recipe->image;
+          $newRecipe['id'] = $recipe->id;
+
+          array_push($recipes, $newRecipe);
+        }
     }
 
     /**
@@ -49,6 +59,57 @@ class RecipesController extends Controller
         //
     }
 
+    public function searchByName(Request $request)
+    {
+        $search = $request['search'];
+        $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $search;
+
+        // Add optional parameters
+        // Max number of recipes to get
+        $url = $url . "&number=5";
+        // Number of results to skip?
+        $url = $url . "&offset=0";
+
+        $responseObject = Unirest\Request::get($url, array(
+              "X-RapidAPI-Key" => "Your Spoonacular API Key"
+        ));
+
+        $recipeArray = $responseObject->body;
+
+        return view ('recipes', ['recipes'=>$recipeArray]);
+    }
+
+    public function searchByIngredients(Ingredients $ingredients)
+    {
+      $ingredientsArray = $ingredients['ingredients'];
+      $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
+
+      // API needs ingredients separated by '%2C' rather than commas.
+      for($i = 0; $i < sizeof($ingredientsArray); $i++) {
+        $url = $url . $ingredientsArray[$i];
+
+        if(!(($i + 1) == sizeof($ingredientsArray))) {
+          $url = $url . '%2C';
+        }
+      }
+
+      // Add optional parameters
+      // Max number of recipes to get
+      $url = $url . "&number=5";
+      // 1 = maximize used ingredients, 2 = minimize missing ingredients
+      $url = $url . "&ranking=1";
+      // Ignore typical pantry ingredients like water, flour, salt, etc.
+      $url = $url . "&ignorePantry=true";
+
+      $responseObject = Unirest\Request::get($url, array(
+        "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      ));
+
+      $recipeArray = $responseObject->body;
+
+      return view ('recipes', ['recipes'=>$recipeArray]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,22 +142,5 @@ class RecipesController extends Controller
     public function destroy(Recipes $recipes)
     {
         //
-    }
-
-    public function recipesFromIngredients($request){
-      $ingredientsArr = $request['ingredients'];
-      $getSite = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
-      for($i = 0; $i < sizeof($ingredientsArr); $i++){
-        $getSite = $getSite . $ingredientsArr[$i];
-        if(!(($i + 1) == sizeof($ingredientsArr))){
-          $getSite = $getSite . '%2C';
-        }
-      }
-
-      $response = Unirest\Request::get($getSite, 
-        array(
-            "X-RapidAPI-Key" => "Your Spoonacular API Key"
-        )
-      );
     }
 }
