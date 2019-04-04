@@ -1,0 +1,73 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 0px;
+
+}
+
+.top{
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.top .img{
+    background-color: black;
+    width: 30%;
+    padding-top: 30%;
+    overflow: hidden;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: url('https://hips.hearstapps.com/del.h-cdn.co/assets/17/34/2048x1024/landscape-1503418862-chicken-thighs-delish.jpg?resize=1200:*')
+}
+
+.top img{
+    object-fit: cover;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.info{
+    padding-left: 25px;
+}
+
+.info h2{
+    font-size: 50px;
+    margin: 0px 0px 8px 0px;
+    letter-spacing: 4px;
+}
+
+.info p{
+    font-size: 24px;
+    color: gray;
+    margin: 2px 0px;
+    font-weight: 40px;
+}
+
+.info a{
+    font-size: 24px;
+    margin: 2px 0px;
+    font-weight: lighter;
+}
+
+.tags{
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tag{
+    margin: 0px 10px 0px 0px;
+    padding: 4px 10px;
+    background-color: rgb(77, 128, 224);
+    color: white;
+    border-radius: 100vh;
+}
