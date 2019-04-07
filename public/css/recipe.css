@@ -71,3 +71,75 @@ body{
     color: white;
     border-radius: 100vh;
 }
+
+.ingredient-container{
+    overflow: hidden;
+    margin: 0px 10% 0px 10%;
+}
+.ingredients{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.ingredients::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+.ingredients::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+.ingredients::-webkit-scrollbar-thumb {
+    opacity:0.1;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(181, 181, 181, 0.5); 
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
+}
+
+.ingredient{
+    width: 30%;
+    margin: 0px 20px 15px 1px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ingredient .img-container{
+    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    width: 40vh;
+}
+.img-container img{
+    object-fit: cover;
+}
+.ingredient-details{
+    padding-left: 8px; 
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    justify-content: left;
+    text-align: left;
+}
+
+.ingredient h6{
+    margin: 2px 0px 0px 0px;
+    font-size: 20px;
+}
+
+.ingredient p{
+    margin: 0px;
+    padding: 4px 0px 8px 0px;
+    font-size: 14px;
+    color: gray;
+}
+
+.instructions{
+    width: 80%;
+    margin: 100px auto;
+}

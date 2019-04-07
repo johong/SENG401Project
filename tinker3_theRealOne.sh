@@ -40,7 +40,7 @@ public function recipesFromSearch($request){
   $getSite = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&query=" . $search;
   $response = Unirest\Request::get($getSite,
     array(
-        "X-RapidAPI-Key" => "4c5a9040a7msh029bae4a514b8b0p1ce6fcjsndd776ae0d2f8"
+        "X-RapidAPI-Key" => "Your Spoonacular API Key"
     )
   );
   echo $response;
