@@ -12,9 +12,11 @@ class RecipesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($recipeArray)
+    public function index($recipeID)
     {
-        //
+      // Doesn't seem to be a way to search by recipeID. We might need to take part of the name,
+      // Search by it and filter by ID?
+      return view('/main/recipe', ['recipeID' => $recipeID]);
     }
 
     /**
@@ -83,15 +85,17 @@ class RecipesController extends Controller
         $recipe['image'] = 'chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365.jpg';
         $recipe['readyInMinutes'] = 65;
         $recipe['servings'] = 4;
+        $recipe['id'] = 485365;
         array_push($recipes, $recipe);
 
         $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
         $recipe['image'] = 'jerk-chicken-grilled-spicy-marinated-chicken-762877.jpg';
         $recipe['readyInMinutes'] = 45;
         $recipe['servings'] = 10;
+        $recipe['id'] = 762877;
         array_push($recipes, $recipe);
 
-        return view('main/recipe', ['recipes'=>$recipes]);
+        return view('main/results', ['recipes'=>$recipes]);
     }
 
     public function searchByIngredients($ingredients)
@@ -145,15 +149,17 @@ class RecipesController extends Controller
       $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
       $missedIngredients = ['fresh thyme leaves', 'red potatoes'];
       $recipe['missedIngredients'] = $missedIngredients;
+      $recipe['id'] = 484157;
       array_push($recipes, $recipe);
 
       $recipe['name'] = 'BBQ roast chicken & chunky chips';
       $recipe['image'] = 'https://spoonacular.com/recipeImages/225465-312x231.jpg';
       $missedIngredients = ['paprika', 'baking potatoes'];
       $recipe['missedIngredients'] = $missedIngredients;
+      $recipe['id'] = 225465;
       array_push($recipes, $recipe);
 
-      return view('main/recipe', ['recipes'=>$recipes]);
+      return view('main/results', ['recipes'=>$recipes]);
     }
 
     /**

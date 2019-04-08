@@ -9,63 +9,22 @@
     <title>Recipe</title>
 </head>
 <body>
-
-    @if(isset($recipes))
-        @if($recipes['type'] == 'name')
-            @foreach($recipes as $recipe)
-                @if($recipe == 'name')
-                    @continue
-                @endif
-                <div class="top">
-                    <div class="img">
-                        {{-- <img src="{{$recipe['image']}}" alt=""> --}}
-                    </div>
-                    <div class = "info">
-                        <h2>{{$recipe['name']}}</h2>
-                        <p>Ready In: {{$recipe['readyInMinutes']}} mins</p>
-                        <p>Servings: {{$recipe['servings']}}</p>
-                    </div>
-                </div>
-            @endforeach
-
-        @else
-            @foreach($recipes as $recipe)
-                @if($recipe == 'ingredients')
-                    @continue
-                @endif
-                <div class="top">
-                    <div class="img">
-                        {{-- <img src="{{$recipe['image']}}" alt=""> --}}
-                    </div>
-                    <div class = "info">
-                        <h2>{{$recipe['name']}}</h2>
-                        <h3>Missed Ingredients:</h3>
-                        @foreach($recipe['missedIngredients'] as $ingredient)
-                            <p>{{$ingredient}}</p>
-                        @endforeach
-                    </div>
-                </div>
-            @endforeach
-        @endif
-
-    @else
-        <div class="top">
-            <div class="img">
-                {{-- <img src="https://img.bestrecipes.com.au/RCK3slSo/h300-w400-cscale/br-api/asset/20771/super-easy-pizza-dough-recipe.jpg" alt=""> --}}
-            </div>
-            <div class = "info">
-                <h2>Fancy Pizza</h2>
-                <p>Ready In: 40 mins</p>
-                <p>Servings: 10</p>
-                <a href="https://www.google.ca?q=eat%20my%20ass">https://www.google.ca?q=eatmyass</a>
-                <div class="tags">
-                    <div class="tag">Popular</div>
-                    <div class="tag">Gluten free</div>
-                    <div class="tag">Low fat</div>
-                </div>
+    <div class="top">
+        <div class="img">
+            {{-- <img src="https://img.bestrecipes.com.au/RCK3slSo/h300-w400-cscale/br-api/asset/20771/super-easy-pizza-dough-recipe.jpg" alt=""> --}}
+        </div>
+        <div class = "info">
+            <h2>Fancy Pizza</h2>
+            <p>Ready In: 40 mins</p>
+            <p>Servings: 10</p>
+            <a href="https://www.google.ca?q=eat%20my%20ass">https://www.google.ca?q=eatmyass</a>
+            <div class="tags">
+                <div class="tag">Popular</div>
+                <div class="tag">Gluten free</div>
+                <div class="tag">Low fat</div>
             </div>
         </div>
-    @endif
+    </div>
 
     <div class="ingredient-container">
         <h1>Ingredients</h1>
