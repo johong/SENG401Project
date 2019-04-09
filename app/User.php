@@ -38,6 +38,9 @@ class User extends Authenticatable
     ];
 
     public function recipes(){
-        return $this->belongsToMany(Recipes::class);
+        return $this->belongsToMany(Recipe::class);
+    }
+    public function ingredients(){
+        return $this->belongsToMany(Ingredient::class);
     }
 }
