@@ -31,7 +31,7 @@ recipesFromIngredients($request1);
 
 
 
-$request2 = array( \
+$request2 = array(
               'search' => 'pasta'
            );
 
@@ -40,10 +40,21 @@ public function recipesFromSearch($request){
   $getSite = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&query=" . $search;
   $response = Unirest\Request::get($getSite,
     array(
-        "X-RapidAPI-Key" => "Your Spoonacular API Key"
+        "X-RapidAPI-Key" => "your API key"
     )
   );
   echo $response;
 }
 
 recipesFromSearch($request2);
+
+
+$id = 'id_num';
+
+public function similarRecipes($id){
+  $response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" . $id . "/similar",
+    array(
+      "X-RapidAPI-Key" => "your API key"
+    )
+  );
+}
