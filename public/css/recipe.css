@@ -39,7 +39,7 @@ body{
 }
 
 .info h2{
-    font-size: 50px;
+    font-size: 35px;
     margin: 0px 0px 8px 0px;
     letter-spacing: 4px;
 }
@@ -123,6 +123,8 @@ body{
 }
 .img-container img{
     object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 .ingredient-details{
     padding-left: 8px;
@@ -134,6 +136,11 @@ body{
 }
 
 .ingredient h6{
+    width: 99%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     margin: 2px 0px 0px 0px;
     font-size: 20px;
 }
