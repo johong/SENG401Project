@@ -19,68 +19,31 @@
             <button id="recipe">Recipes</Button>
         </div>
 
-        <h1>Search for recipe</h1>
-        <div class = "form">{{-- <form action="./results.html"> --}}
-            <input id = "field" type="text" placeholder="Search for recipe by ingredients...">
-            <button id="send" class="circle-button" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
-        {{-- </form> --}}
+        
+
+            <h1>Search for recipe</h1>
+            <div class = "form">{{-- <form action="./results.html"> --}}
+                <input id = "field" type="text" placeholder="Search for recipe by ingredients...">
+                <form method="POST" action="/recipes/ingredients">
+                    {{ csrf_field() }}
+                    <button id="send" class="circle-button" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
+                
+                <div class="ingredient-list">
+                    {{-- <div class="ingredient">
+                        <input name="carrot" style="display:none;" value="carrot">
+                        <p class="ing">Carrot</p>
+                        <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
+                    </div> --}}
+                <div>
+                    
+            </form>
         </div>
 
-        <form method="POST" action="/recipes/ingredients" class="ingredient-list">
-            {{ csrf_field() }}
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-            <div class="ingredient">
-                <p class="ing">Carrot</p>
-                <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
-            </div>
-        </div>
 
     </div>
+    {{-- <script src="{{asset('js/search.js')}}"></script> --}}
 @endsection
 
 {{-- </body>
-<script src="{{asset('js/search.js')}}"></script>
-<<<<<<< HEAD
+<script src="{{asset('js/search.js')}}"></script>2
 </html> --}}
-=======
-</html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $(".postbutton").click(function(){
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/postajax',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {_token: CSRF_TOKEN, message:$(".getinfo").val()},
-                dataType: 'JSON',
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) { 
-                    $(".writeinfo").append(data.msg); 
-                }
-            }); 
-        });
-    });    
-</script>
->>>>>>> 9af4a71e22f7b9f5329d973b8952df185a99be3c
