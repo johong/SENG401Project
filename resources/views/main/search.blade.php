@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>Main</title>
 </head>
-<body>
+<body> --}}
+@extends('layouts.app')
+@section('content')
 <div class="bg-image" style="background-image:url({{asset('Images/indexBackground.jpg')}})"></div>
     <div class = "center">
         <div class="tab">
@@ -53,9 +55,13 @@
         </div>
 
     </div>
+@endsection
 
-</body>
+{{-- </body>
 <script src="{{asset('js/search.js')}}"></script>
+<<<<<<< HEAD
+</html> --}}
+=======
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
@@ -77,3 +83,4 @@
         });
     });    
 </script>
+>>>>>>> 9af4a71e22f7b9f5329d973b8952df185a99be3c
