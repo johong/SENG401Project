@@ -259,6 +259,7 @@ class RecipesController extends Controller
       // }
 
       //FAKE DATA, Comment out everything above to avoid using API calls if you want
+      echo("$ingredients");
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';
