@@ -48,11 +48,10 @@ $(document).ready(function(){
         }
         
         $("#send").click(function(){
-            console.log('search');
             $.ajax({
                 /* the route pointing to the post function */
                 url: '/recipes/ingredients',
-                type: 'GET',
+                type: 'POST',
                 /* send the csrf-token and the input to the controller */
                 data: { _token: CSRF_TOKEN, message:$(".getinfo").val(),
                         ingredients: ingredients
