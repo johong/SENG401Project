@@ -53,9 +53,33 @@
                 </div>
             </div>
 
-            <div class = "ingredients">
-                <div class="ingredients-list">
-                    
+            <div class = "ingredient-list">
+                <div class="ingredient">
+                    <p>
+                        Carrot
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
+                </div>
+                <div class="ingredient">
+                    <p>
+                        Carrot
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
+                </div>
+                <div class="ingredient">
+                    <p>
+                        Carrot
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
                 </div>
             </div>
 
