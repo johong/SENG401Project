@@ -46,23 +46,6 @@ $(document).ready(function(){
         for(var i = 0; i<ingredientsHtml.length; i++){
             ingredients[i] = ingredientsHtml[i].innerHTML;
         }
-        
-        $("#send").click(function(){
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/recipes/ingredients',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: { _token: CSRF_TOKEN, message:$(".getinfo").val(),
-                        ingredients: ingredients
-                },
-                dataType: 'JSON',
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) { 
-                    console.log("success");
-                }
-            }); 
-        });
     }
 }); 
 

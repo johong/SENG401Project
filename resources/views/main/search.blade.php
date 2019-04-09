@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>Main</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
 <div class="bg-image" style="background-image:url({{asset('Images/indexBackground.jpg')}})"></div>
@@ -25,7 +24,8 @@
         {{-- </form> --}}
         </div>
 
-        <div class="ingredient-list">
+        <form method="POST" action="/recipes/ingredients" class="ingredient-list">
+            {{ csrf_field() }}
             <div class="ingredient">
                 <p class="ing">Carrot</p>
                 <span class="closebtn" onclick="this.parentElement.remove();">&times;</span> 
