@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="position:fixed;z-index:1; width:100%;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('', 'FlavorDash') }}

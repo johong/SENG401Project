@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Recipes;
-use Unirest\Request;
+// use Unirest\Request;
+use Illuminate\Http\Request;
 
 class RecipesController extends Controller
 {
@@ -259,7 +260,7 @@ class RecipesController extends Controller
       // }
 
       //FAKE DATA, Comment out everything above to avoid using API calls if you want
-      echo("$ingredients");
+      dd(request());
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';
