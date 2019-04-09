@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/recipes/name/{recipeName}', 'RecipesController@searchByName');
 Route::get('/recipes/ingredients/{ingredients}', 'RecipesController@searchByIngredients');
+Route::get('/recipes/{id}', 'RecipesController@index');
