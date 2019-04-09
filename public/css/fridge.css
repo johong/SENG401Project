@@ -56,29 +56,12 @@ html{
 }
 
 .side-bar{
-    justify-content: center;
     margin-left: 2%;
     margin-right: 0;
-    display:block;
     float:left;
     background-color: rgba(192,192,192, 0.5);
     background-size: cover;
     width:14%;
-}
-
-.button-list {
-    text-align: center;
-    display: inline-block;
-}
-
-.button-list ul{
-    list-style: none;
-    text-align: center;
-}
-
-.button-list button {
-    margin:2%;
-    min-width: 100%;
 }
 
 .ingredient-list{
@@ -92,7 +75,7 @@ html{
 }
 
 .ingredient{
-    background-color: rgba(17, 16, 16, 0.5);
+    background-color: rgba(17, 16, 16, 0.3);
     color: black;
     border-radius: 100vh;
     padding: 4px 5px 4px 10px;
@@ -125,3 +108,24 @@ html{
 .closebtn:hover {
     color: white;
 }
+
+.pagination{
+    margin: 100px 0px 50px 0px;
+    text-align: center;
+}
+/* Pagination links */
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: rgb(55, 194, 20);
+    color: white;
+  }
+
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;}

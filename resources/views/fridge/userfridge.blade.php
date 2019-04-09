@@ -31,20 +31,35 @@
             </div>
 
             <div class = "side-bar"> 
-                <div class ="button-list"> 
-                    <ul>
-                        <li>
-                            <button>
-                                Dairy
-                            </button>
-                        </li>
-                        <li>
-                            <button>
-                                Meat
-                            </button>
-                        </li>
-                    </ul>
-                </div> 
+            <div class = "ingredient-list">
+                <div class="ingredient">
+                    <p>
+                        A
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
+                </div>
+                <div class="ingredient">
+                    <p>
+                        B
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
+                </div>
+                <div class="ingredient">
+                    <p>
+                        C
+                    </p>
+                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                    <span class="closebtn">
+                        &hearts;
+                    </span> 
+                </div>
+            </div>
             </div>
 
             <div class = "recipes"> 
@@ -53,36 +68,19 @@
                 </div>
             </div>
 
-            <div class = "ingredient-list">
-                <div class="ingredient">
-                    <p>
-                        Carrot
-                    </p>
-                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
-                    <span class="closebtn">
-                        &hearts;
-                    </span> 
-                </div>
-                <div class="ingredient">
-                    <p>
-                        Carrot
-                    </p>
-                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
-                    <span class="closebtn">
-                        &hearts;
-                    </span> 
-                </div>
-                <div class="ingredient">
-                    <p>
-                        Carrot
-                    </p>
-                    <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
-                    <span class="closebtn">
-                        &hearts;
-                    </span> 
-                </div>
-            </div>
 
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">&raquo;</a>
+            </div>
+            
 
         </body>
 </html>
