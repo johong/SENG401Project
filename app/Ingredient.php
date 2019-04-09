@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Recipes extends Model
+class Ingredient extends Model
 {
+    protected $fillable=[
+        'id','name',
+    ];
     //
     public function users(){
         return $this->belongsToMany(User::class);
