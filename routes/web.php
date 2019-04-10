@@ -16,7 +16,7 @@ Route::get('/', function () {
     $check = Auth::user();
     $hasUser = false;
     if(isset($check)){
-        $check = true;
+        $hasUser = true;
     }
 
     return view('main/search', ['user'=>$hasUser]);
@@ -29,12 +29,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/userfridge', 'UserController@index');
 // Route::get('/userfridge/{user}', 'UserController@show');
 Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
-Route::get('/userfridge/deleteFavRecipe/{id}', 'UserCOntroller@removeFavRecipe');
+Route::post('/userfridge/deleteFavRecipe/', 'UserCOntroller@removeFavRecipe');
 
 Route::post('/userfridge/addFavIngredient/', 'UserController@addFavIngredient');
-
-Route::get('/userfridge/addFavRecipe/{name}', 'UserController@addFavRecipe');
-
+Route::post('/userfridge/addFavRecipe/', 'UserController@addFavRecipe');
 Route::post('/recipes/byName', 'RecipesController@searchByName');
 Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
 Route::get('/recipes/{id}', 'RecipesController@index');

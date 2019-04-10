@@ -7,6 +7,8 @@ use App\Ingredient;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Recipe;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -94,12 +96,14 @@ class UserController extends Controller
         //
     }
 
-    public function removeFavIngredient(int $id){
+    public function removeFavIngredient(Request $request){
 
     }
 
-    public function removeFavRecipe(int $id){
-
+    public function removeFavRecipe(Request $request){
+        $recipeId = $request->get('id');
+        DB::table('recipe_user')->where('recipe_id', '=', $recipeId)->where('user_id', '=', Auth::User()->id)->delete();
+        return redirect()->back();
     }
 
     public function addFavIngredient(Request $request){
@@ -107,12 +111,25 @@ class UserController extends Controller
         
         $request->validate([
             'ingredient'=>'required'
-          ]);
+        ]);
           $ingredient = new Ingredient([
             'name' => $request->get('ingredient'),
           ]);
           $user->ingredients()->save($ingredient);
           return redirect()->action('UserController@index');
+    }
+
+    public function addFavRecipe(Request $request){
+        $user = Auth::User();
+
+        $recipe = new Recipe([
+            'id'=>$request->get('id'),
+            'name' => $request->get('name'),
+            'image_url'=>$request->get('image')
+        ]);
+
+        $user->recipes()->save($recipe);
+        return redirect()->back();
     }
 
 }

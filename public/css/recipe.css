@@ -58,6 +58,26 @@ body{
     font-weight: 40px;
 }
 
+#fav{
+    margin-top: 10px;
+    border-radius: 100vh;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.add{
+    background-color: rgb(82, 224, 77);
+}
+
+.remove{
+    background-color: rgb(224, 77, 77);
+}
+
 .info a{
     font-size: 24px;
     margin: 2px 0px;

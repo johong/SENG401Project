@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Recipes;
+use App\Recipe;
 use Unirest;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecipesController extends Controller
 {
@@ -93,7 +95,19 @@ class RecipesController extends Controller
       $recipeInfo['ingredients'] = $ingredients;
 
       $similarRecipes = $this->getSimilarRecipes($recipeID);
-      return view('/main/recipe', ['recipe' => $recipeInfo, 'similarRecipes' => $similarRecipes]);
+
+      $check = Auth::User();
+      $hasFav = false;
+      $hasUser = false;
+      if(isset($check)){
+          $hasUser = true;
+          $hasFav = DB::table('recipe_user')->where('recipe_id', '=', $recipeID)->where('user_id', '=', Auth::User()->id)->get();
+          $count = count($hasFav);
+          if($count > 0){$hasFav = true;}
+          else{$hasFav = false;}
+      }
+      
+      return view('/main/recipe', ['fav'=>$hasFav,'user'=>$hasUser, 'recipe' => $recipeInfo, 'similarRecipes' => $similarRecipes]);
     }
 
     public function getSimilarRecipes($recipeID)
