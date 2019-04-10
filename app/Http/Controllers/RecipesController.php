@@ -211,14 +211,14 @@ class RecipesController extends Controller
         //FAKE DATA, Comment out everything above to avoid using API calls if you want
         $recipes['type'] = 'name';
         $recipe['name'] = 'Chicken Spinoccoli – Breaded Stuffed Chicken Breast With Spinach, Broccoli and Cheese';
-        $recipe['image'] = 'chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365.jpg';
+        $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
         $recipe['readyInMinutes'] = 65;
         $recipe['servings'] = 4;
         $recipe['id'] = 485365;
         array_push($recipes, $recipe);
 
         $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
-        $recipe['image'] = 'jerk-chicken-grilled-spicy-marinated-chicken-762877.jpg';
+        $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
         $recipe['readyInMinutes'] = 45;
         $recipe['servings'] = 10;
         $recipe['id'] = 762877;

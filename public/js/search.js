@@ -4,6 +4,8 @@ const recipe = document.getElementById('recipe');
 ingredient.addEventListener('click', ()=>{
     if(recipe.className=='selected'){
         ingredient.className = "selected";
+        document.getElementById('field').placeholder="Search for recipes by ingredients...";
+        document.getElementById('search-form').action = "/recipes/byIngredients"
         recipe.className='';
     }
 })
@@ -11,6 +13,8 @@ ingredient.addEventListener('click', ()=>{
 recipe.addEventListener('click', ()=>{
     if(ingredient.className=='selected'){
         recipe.className = "selected";
+        document.getElementById('field').placeholder="Search for recipes by name...";
+        document.getElementById('search-form').action = "/recipes/byName"
         ingredient.className='';
     }
 })
@@ -19,6 +23,7 @@ recipe.addEventListener('click', ()=>{
 document.getElementById('field').addEventListener('keyup', (event)=>{
     if(event.keyCode == 13){
         var ingredientName =  document.getElementById('field').value;
+        if(!ingredientName || ingredientName=="")return;
 
         var list = document.getElementsByClassName('ingredient-list')[0];
         var newNode = document.createElement('div');
@@ -44,17 +49,17 @@ document.getElementById('field').addEventListener('keyup', (event)=>{
 })
 
 //search pressed
-$(document).ready(function(){
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        //only append if ingredient type is searched
-    if(ingredient.className == 'selected'){
-        var ingredientsHtml = document.getElementsByClassName('ing');
-        var ingredients = Array();
-        for(var i = 0; i<ingredientsHtml.length; i++){
-            ingredients[i] = ingredientsHtml[i].innerHTML;
-        }
-    }
-}); 
+// $(document).ready(function(){
+//     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+//         //only append if ingredient type is searched
+//     if(ingredient.className == 'selected'){
+//         var ingredientsHtml = document.getElementsByClassName('ing');
+//         var ingredients = Array();
+//         for(var i = 0; i<ingredientsHtml.length; i++){
+//             ingredients[i] = ingredientsHtml[i].innerHTML;
+//         }
+//     }
+// }); 
 
 //search pressed
 // document.getElementById('send').addEventListener('click', ()=>{

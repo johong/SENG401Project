@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/userfridge', 'UserController@index');
 Route::get('/userfridge/{user}', 'UserController@show');
 
-Route::get('/recipes/byName', 'RecipesController@searchByName');
+Route::post('/recipes/byName', 'RecipesController@searchByName');
 Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
 Route::get('/recipes/{id}', 'RecipesController@index');
 
