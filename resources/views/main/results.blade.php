@@ -17,7 +17,7 @@
                     @if($recipe == 'name')
                         @continue
                     @endif
-                    <div class="recipe" onclick="window.open('../recipes/{{$recipe['id']}}','_self');">
+                    <div style="cursor: pointer;" class="recipe" onclick="window.open('../recipes/{{$recipe['id']}}','_self');">
                         <img src="https://spoonacular.com/recipeImages/{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>
