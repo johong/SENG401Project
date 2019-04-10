@@ -101,6 +101,24 @@ body{
     outline-width: 0;
 }
 
+#ffs{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+}
+#ffs p{
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 8px;
+}
+
+#fridge{
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
 .ingredient-list{
     clear: right;
     display: flex;
