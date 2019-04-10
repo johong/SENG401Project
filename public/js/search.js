@@ -4,6 +4,8 @@ const recipe = document.getElementById('recipe');
 ingredient.addEventListener('click', ()=>{
     if(recipe.className=='selected'){
         ingredient.className = "selected";
+        document.getElementById('field').placeholder="Search for recipes by ingredients...";
+        document.getElementById('search-form').action = "/recipes/byIngredients"
         recipe.className='';
     }
 })
@@ -11,14 +13,23 @@ ingredient.addEventListener('click', ()=>{
 recipe.addEventListener('click', ()=>{
     if(ingredient.className=='selected'){
         recipe.className = "selected";
+        document.getElementById('field').placeholder="Search for recipes by name...";
+        document.getElementById('search-form').action = "/recipes/byName"
         ingredient.className='';
+    }
+})
+
+document.getElementById('send').addEventListener('click', ()=>{
+    if(recipe.className="selected"){
+        document.getElementById('search-form').action = "/recipes/byName?name="+document.getElementById('field').value
     }
 })
 
 //add ingredient
 document.getElementById('field').addEventListener('keyup', (event)=>{
-    if(event.keyCode == 13){
+    if(event.keyCode == 13 && ingredient.className=='selected'){
         var ingredientName =  document.getElementById('field').value;
+        if(!ingredientName || ingredientName=="")return;
 
         var list = document.getElementsByClassName('ingredient-list')[0];
         var newNode = document.createElement('div');
@@ -44,17 +55,17 @@ document.getElementById('field').addEventListener('keyup', (event)=>{
 })
 
 //search pressed
-$(document).ready(function(){
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        //only append if ingredient type is searched
-    if(ingredient.className == 'selected'){
-        var ingredientsHtml = document.getElementsByClassName('ing');
-        var ingredients = Array();
-        for(var i = 0; i<ingredientsHtml.length; i++){
-            ingredients[i] = ingredientsHtml[i].innerHTML;
-        }
-    }
-}); 
+// $(document).ready(function(){
+//     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+//         //only append if ingredient type is searched
+//     if(ingredient.className == 'selected'){
+//         var ingredientsHtml = document.getElementsByClassName('ing');
+//         var ingredients = Array();
+//         for(var i = 0; i<ingredientsHtml.length; i++){
+//             ingredients[i] = ingredientsHtml[i].innerHTML;
+//         }
+//     }
+// }); 
 
 //search pressed
 // document.getElementById('send').addEventListener('click', ()=>{

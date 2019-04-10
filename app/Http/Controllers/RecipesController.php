@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recipes;
-// use Unirest\Request;
+use Unirest;
 use Illuminate\Http\Request;
 
 class RecipesController extends Controller
@@ -17,8 +17,8 @@ class RecipesController extends Controller
     {
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" . $recipeID . "/information";
       //
-      // $responseObject = Request::get($url, array(
-      //       "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //       "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
       //
       // $recipe = $responseObject->body;
@@ -29,7 +29,13 @@ class RecipesController extends Controller
       // $recipeInfo['readyInMinutes'] = $recipe->readyInMinutes;
       // $recipeInfo['servings'] = $recipe->servings;
       // $recipeInfo['sourceUrl'] = $recipe->spoonacularSourceUrl;
+      // // NOTE: instructions can be NULL
       // $recipeInfo['instructions'] = $recipe->instructions;
+      // $recipeInfo['vegetarian'] = $recipe->vegetarian;
+      // $recipeInfo['vegan'] = $recipe->vegan;
+      // $recipeInfo['glutenFree'] = $recipe->glutenFree;
+      // $recipeInfo['dairyFree'] = $recipe->dairyFree;
+      // $recipeInfo['veryPopular'] = $recipe->veryPopular;
       //
       // $ingredients = [];
       // foreach($recipe->extendedIngredients as $ingredientInfo) {
@@ -39,6 +45,7 @@ class RecipesController extends Controller
       //
       //   array_push($ingredients, $nextIngredient);
       // }
+      //
       // $recipeInfo['ingredients'] = $ingredients;
 
 
@@ -49,6 +56,11 @@ class RecipesController extends Controller
       $recipeInfo['readyInMinutes'] = 90;
       $recipeInfo['servings'] = 4;
       $recipeInfo['sourceUrl'] = 'https://spoonacular.com/chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365';
+      $recipeInfo['vegetarian'] = false;
+      $recipeInfo['vegan'] = false;
+      $recipeInfo['glutenFree'] = true;
+      $recipeInfo['dairyFree'] = true;
+      $recipeInfo['veryPopular'] = false;
       $recipeInfo['instructions'] = "Pound the chicken to an even thickness. Season with salt and pepper on both sides. Prep the rest of the ingredients.Heat the butter in a skillet on medium high heat until melted. Add the onion, cook for about 5 minutes, add the garlic and cook for another 30 seconds or so.Add the spinach and white wine. Cook for about a minute until the spinach wilts.You can also use thawed, frozen spinach instead of fresh, but you will only need a small amount, since the spinach is already wilted. Make sure to squeeze out as much liquid as possible from the spinach first, before adding it to the onions.Add the broccoli, season with salt and pepper, cook for about 2 minutes, until the broccoli is slightly softened, but still crunchy. Set aside to cool.Use a rubber spatula or wooden spoon to mix up the cream cheese. It should be really easy to do because the cream cheese needs to be softened.Add the rest of the ingredients. Mix to combine.Spread of the cheese filling on one of the flattened chicken breasts. Spread it out evenly, leaving a border free around the edges. Top with part of the stuffing.Roll up the chicken breast tucking in the sides into the center of the rolled chicken.Roll up the chicken breast tucking in the sides into the center of the rolled chicken.Fill and stuff the rest of the chicken breasts. Roll up the stuffed chicken breasts tightly inside aluminum foil. Refrigerate for at least 1 hour.Preheat the oven to 400 degrees Fahrenheit.Prep the breading station. Place the flour and breadcrumbs into separate plates. Whisk up the eggs and water in another plate.Dredge the chicken in the flour, then in the egg wash and then in the breadcrumbs.Heat up cup oil in a 10 inch skillet on medium high heat, until the oil is hot ans shimmering. Add the chicken to the oil and cook for about 1-2 minutes on all 4 sides, until the chicken is golden brown on all sides.Place the chicken on top of a rack on a rimmed baking sheet. Roast in the oven until the chicken reaches 160 degrees on an instant read thermometer.Let the chicken rest for at least 5 minutes, then slice into pieces.";
 
       $ingredients = [];
@@ -88,17 +100,17 @@ class RecipesController extends Controller
     {
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" . $recipeID . "/similar";
       //
-      // $responseObject = Request::get($url, array(
-      //   "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //   "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
       //
       // $similarRecipes = [];
       // foreach($responseObject->body as $recipe) {
-      //   $newRecipe['name'] = 'title';
-      //   $newRecipe['image'] = 'image';
-      //   $newRecipe['id'] = 'id';
-      //   $newRecipe['servings'] = 'servings';
-      //   $newRecipe['readyInMinutes'] = 'readyInMinutes';
+      //   $newRecipe['name'] = $recipe->title;
+      //   $newRecipe['image'] = $recipe->image;
+      //   $newRecipe['id'] = $recipe->id;
+      //   $newRecipe['servings'] = $recipe->servings;
+      //   $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
       //
       //   array_push($similarRecipes, $newRecipe);
       // }
@@ -168,66 +180,70 @@ class RecipesController extends Controller
         //
     }
 
-    public function searchByName(Request $name)
+    public function searchByName(Request $request)
     {
-        // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
-        //
-        // // Add optional parameters
-        // // Max number of recipes to get
-        // $url = $url . "&number=5";
-        // // Number of results to skip?
-        // $url = $url . "&offset=0";
-        //
-        // $responseObject = Request::get($url, array(
-        //       "X-RapidAPI-Key" => "Your Spoonacular API Key"
-        // ));
-        //
-        // $recipeArray = $responseObject->body->results;
-        // $recipes['type'] = 'name';
-        //
-        // foreach ($recipeArray as $recipe) {
-        //   $newRecipe['name'] = $recipe->title;
-        //   $newRecipe['image'] = $recipe->image;
-        //   $newRecipe['id'] = $recipe->id;
-        //   $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
-        //   $newRecipe['servings'] = $recipe->servings;
-        //
-        //   array_push($recipes, $newRecipe);
-        // }
+        $name = $request->all()['name'];
+        $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
+        
+        // Add optional parameters
+        // Max number of recipes to get
+        $url = $url . "&number=2";
+        // Number of results to skip?
+        $url = $url . "&offset=0";
+        
+        $responseObject = Unirest\Request::get($url, array(
+              "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
+        ));
+        
+
+        $recipeArray = $responseObject->body->results;
+        $recipes['type'] = 'name';
+        
+        foreach ($recipeArray as $recipe) {
+          $newRecipe['name'] = $recipe->title;
+          $newRecipe['image'] = $recipe->image;
+          $newRecipe['id'] = $recipe->id;
+          $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
+          $newRecipe['servings'] = $recipe->servings;
+        
+          array_push($recipes, $newRecipe);
+        }
 
 
         //FAKE DATA, Comment out everything above to avoid using API calls if you want
-        $recipes['type'] = 'name';
-        $recipe['name'] = 'Chicken Spinoccoli – Breaded Stuffed Chicken Breast With Spinach, Broccoli and Cheese';
-        $recipe['image'] = 'chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365.jpg';
-        $recipe['readyInMinutes'] = 65;
-        $recipe['servings'] = 4;
-        $recipe['id'] = 485365;
-        array_push($recipes, $recipe);
+        // $recipes['type'] = 'name';
+        // $recipe['name'] = 'ILIKEASS Spinoccoli – Breaded Stuffed Chicken Breast With Spinach, Broccoli and Cheese';
+        // $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
+        // $recipe['readyInMinutes'] = 65;
+        // $recipe['servings'] = 4;
+        // $recipe['id'] = 485365;
+        // array_push($recipes, $recipe);
 
-        $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
-        $recipe['image'] = 'jerk-chicken-grilled-spicy-marinated-chicken-762877.jpg';
-        $recipe['readyInMinutes'] = 45;
-        $recipe['servings'] = 10;
-        $recipe['id'] = 762877;
-        array_push($recipes, $recipe);
+        // $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
+        // $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
+        // $recipe['readyInMinutes'] = 45;
+        // $recipe['servings'] = 10;
+        // $recipe['id'] = 762877;
+        // array_push($recipes, $recipe);
 
         return view('main/results', ['recipes'=>$recipes]);
     }
 
-    public function searchByIngredients(Request $ingredients)
+    public function searchByIngredients()
     {
-      //$ingredients needs updating based on how we plan on sending arguments
+      // $ingredientsList = request()->request;
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
       //
       // // API needs ingredients separated by '%2C' rather than commas.
-      // for($i = 0; $i < sizeof($ingredientsArray); $i++) {
-      //   $url = $url . $ingredientsArray[$i];
-      //
-      //   if(!(($i + 1) == sizeof($ingredientsArray))) {
-      //     $url = $url . '%2C';
+      // foreach($ingredientsList as $ingredient) {
+      //   // Only way I could find to avoid _token in request
+      //   if (!(strlen($ingredient) > 30)) {
+      //     $url = $url . $ingredient . '%2C';
       //   }
       // }
+      //
+      // // Remove extra %2C at end of string
+      // $url = substr($url, 0, -3);
       //
       // // Add optional parameters
       // // Max number of recipes to get
@@ -237,10 +253,9 @@ class RecipesController extends Controller
       // // Ignore typical pantry ingredients like water, flour, salt, etc.
       // $url = $url . "&ignorePantry=true";
       //
-      // $responseObject = Request::get($url, array(
-      //   "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //   "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
-      // $responseObject = $request->input($url, array("X-RapidAPI-Key" => "7eb1af4721msh8cf968b543c0dadp154b16jsnf4d778c4542d"));
       //
       // $recipeArray = $responseObject->body;
       // $recipes['type'] = 'ingredients';
@@ -259,8 +274,7 @@ class RecipesController extends Controller
       //   array_push($recipes, $newRecipe);
       // }
 
-      //FAKE DATA, Comment out everything above to avoid using API calls if you want
-      dd(request());
+      //FAKE DATA, Comment out everything above to avoid using API calls if you want      
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';

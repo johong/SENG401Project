@@ -53,8 +53,8 @@ body{
 
 
 .name{
-  /* I made this 99% so it doesn't flow over */
-    width: 99%;
+  /* I made this 97% so it doesn't flow over */
+    width: 97%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -68,7 +68,13 @@ body{
 }
 
 .prepTime{
-    margin: 0px 0px 0px 10px;
+    margin: 10px 0px 0px 10px;
+    font-size: 14px;
+    color: rgb(148, 148, 148);
+}
+
+.missedIngredients {
+    margin: 10px 0px 0px 10px;
     font-size: 14px;
     color: rgb(148, 148, 148);
 }
