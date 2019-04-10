@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/userfridge', 'UserController@index');
-Route::get('/userfridge/{user}', 'UserController@show');
+// Route::get('/userfridge/{user}', 'UserController@show');
 
 Route::post('/recipes/byName', 'RecipesController@searchByName');
 Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
