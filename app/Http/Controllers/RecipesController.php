@@ -182,40 +182,32 @@ class RecipesController extends Controller
 
     public function searchByName(Request $request)
     {
-        // $name = $request->all()['name'];
-        // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
+        $name = $request->all()['name'];
+        $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
         
-        // // Add optional parameters
-        // // Max number of recipes to get
-        // $url = $url . "&number=2";
-        // // Number of results to skip?
-        // $url = $url . "&offset=0";
+        // Add optional parameters
+        // Max number of recipes to get
+        $url = $url . "&number=2";
+        // Number of results to skip?
+        $url = $url . "&offset=0";
         
-        // $responseObject = Unirest\Request::get($url, array(
-        //       "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
-        // ));
+        $responseObject = Unirest\Request::get($url, array(
+              "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
+        ));
+        
 
-        $response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=2&offset=0&type=main+course&query=chicken",
-  array(
-    "X-RapidAPI-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
-  )
-);
+        $recipeArray = $responseObject->body->results;
+        $recipes['type'] = 'name';
         
-        dd($response);
-
-        // $recipeArray = $responseObject->body->results;
-        // $recipes['type'] = 'name';
+        foreach ($recipeArray as $recipe) {
+          $newRecipe['name'] = $recipe->title;
+          $newRecipe['image'] = $recipe->image;
+          $newRecipe['id'] = $recipe->id;
+          $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
+          $newRecipe['servings'] = $recipe->servings;
         
-        // foreach ($recipeArray as $recipe) {
-        //   $newRecipe['name'] = $recipe->title;
-        //   $newRecipe['image'] = $recipe->image;
-        //   $newRecipe['id'] = $recipe->id;
-        //   $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
-        //   $newRecipe['servings'] = $recipe->servings;
-        
-        //   array_push($recipes, $newRecipe);
-        // }
+          array_push($recipes, $newRecipe);
+        }
 
 
         //FAKE DATA, Comment out everything above to avoid using API calls if you want
