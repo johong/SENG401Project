@@ -17,8 +17,8 @@
                     @if($recipe == 'name')
                         @continue
                     @endif
-                    <div class="recipe" onclick="window.open('../{{$recipe['id']}}','_self');">
-                        <img src="{{$recipe['image']}}" alt="{{$recipe['image']}}">
+                    <div class="recipe" onclick="window.open('../recipes/{{$recipe['id']}}','_self');">
+                        <img src="https://spoonacular.com/recipeImages/{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>
                             <p class="prepTime">Ready In: {{$recipe['readyInMinutes']}}mins</p>
@@ -32,7 +32,7 @@
                     @if($recipe == 'ingredients')
                         @continue
                     @endif
-                    <div class="recipe" onclick="window.open('./{{$recipe['id']}}','_self');">
+                    <div class="recipe" onclick="window.open('../recipes/{{$recipe['id']}}','_self');">
                         <img src="{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>

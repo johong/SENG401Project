@@ -15,6 +15,9 @@
                 <input id = "field" spellcheck = "true" type="text" placeholder="Search for recipes by ingredients...">
                 <form id="search-form" method="POST" action="/recipes/byIngredients">
                     {{ csrf_field() }}
+                    @if($user==true)
+                        <div id="ffs"><input id="fridge" type="checkbox" name="fridge" value="fridge"><p>Include my fridge</p></div>
+                    @endif
                     <button id="send" class="circle-button" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
 
                 <div class="ingredient-list">

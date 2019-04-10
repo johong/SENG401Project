@@ -10,9 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\User;
 
 Route::get('/', function () {
-    return view('main/search');
+    $check = Auth::user();
+    $hasUser = false;
+    if(isset($check)){
+        $check = true;
+    }
+
+    return view('main/search', ['user'=>$hasUser]);
 });
 
 Auth::routes();
