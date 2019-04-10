@@ -31,6 +31,11 @@ class RecipesController extends Controller
       // $recipeInfo['sourceUrl'] = $recipe->spoonacularSourceUrl;
       // // NOTE: instructions can be NULL
       // $recipeInfo['instructions'] = $recipe->instructions;
+      // $recipeInfo['vegetarian'] = $recipe->vegetarian;
+      // $recipeInfo['vegan'] = $recipe->vegan;
+      // $recipeInfo['glutenFree'] = $recipe->glutenFree;
+      // $recipeInfo['dairyFree'] = $recipe->dairyFree;
+      // $recipeInfo['veryPopular'] = $recipe->veryPopular;
       //
       // $ingredients = [];
       // foreach($recipe->extendedIngredients as $ingredientInfo) {
@@ -51,6 +56,11 @@ class RecipesController extends Controller
       $recipeInfo['readyInMinutes'] = 90;
       $recipeInfo['servings'] = 4;
       $recipeInfo['sourceUrl'] = 'https://spoonacular.com/chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365';
+      $recipeInfo['vegetarian'] = false;
+      $recipeInfo['vegan'] = false;
+      $recipeInfo['glutenFree'] = true;
+      $recipeInfo['dairyFree'] = true;
+      $recipeInfo['veryPopular'] = false;
       $recipeInfo['instructions'] = "Pound the chicken to an even thickness. Season with salt and pepper on both sides. Prep the rest of the ingredients.Heat the butter in a skillet on medium high heat until melted. Add the onion, cook for about 5 minutes, add the garlic and cook for another 30 seconds or so.Add the spinach and white wine. Cook for about a minute until the spinach wilts.You can also use thawed, frozen spinach instead of fresh, but you will only need a small amount, since the spinach is already wilted. Make sure to squeeze out as much liquid as possible from the spinach first, before adding it to the onions.Add the broccoli, season with salt and pepper, cook for about 2 minutes, until the broccoli is slightly softened, but still crunchy. Set aside to cool.Use a rubber spatula or wooden spoon to mix up the cream cheese. It should be really easy to do because the cream cheese needs to be softened.Add the rest of the ingredients. Mix to combine.Spread of the cheese filling on one of the flattened chicken breasts. Spread it out evenly, leaving a border free around the edges. Top with part of the stuffing.Roll up the chicken breast tucking in the sides into the center of the rolled chicken.Roll up the chicken breast tucking in the sides into the center of the rolled chicken.Fill and stuff the rest of the chicken breasts. Roll up the stuffed chicken breasts tightly inside aluminum foil. Refrigerate for at least 1 hour.Preheat the oven to 400 degrees Fahrenheit.Prep the breading station. Place the flour and breadcrumbs into separate plates. Whisk up the eggs and water in another plate.Dredge the chicken in the flour, then in the egg wash and then in the breadcrumbs.Heat up cup oil in a 10 inch skillet on medium high heat, until the oil is hot ans shimmering. Add the chicken to the oil and cook for about 1-2 minutes on all 4 sides, until the chicken is golden brown on all sides.Place the chicken on top of a rack on a rimmed baking sheet. Roast in the oven until the chicken reaches 160 degrees on an instant read thermometer.Let the chicken rest for at least 5 minutes, then slice into pieces.";
 
       $ingredients = [];
