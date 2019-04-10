@@ -89,13 +89,13 @@
         <h1>Similar</h1>
         <div class="ingredients">
             @foreach($similarRecipes as $similarRecipe)
-                <div class="ingredient">
+                <div style = "cursor: pointer;" class="ingredient" onclick="window.open('../recipes/{{$similarRecipe['id']}}','_self');">
                     <div class="img-container">
                         <img src="https://spoonacular.com/recipeImages/{{$similarRecipe['image']}}" alt="{{$similarRecipe['image']}}"/>
                     </div>
                     <div class="ingredient-details">
                         <h6 title="{{$similarRecipe['name']}}">{{$similarRecipe['name']}}</h6>
-                        <p>Servings: {{$similarRecipe['servings']}}<br/>Ready In: {{$similarRecipe['readyInMinutes']}} mins</p>
+                        <p>Ready In: {{$similarRecipe['readyInMinutes']}} mins</p>
                     </div>
                 </div>
             @endforeach

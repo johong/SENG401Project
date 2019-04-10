@@ -17,7 +17,7 @@ body{
 }
 
 .top .img{
-    background-color: black;
+    object-fit: cover;
     width: 30%;
     padding-top: 30%;
     overflow: hidden;
@@ -25,7 +25,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-image: url('https://hips.hearstapps.com/del.h-cdn.co/assets/17/34/2048x1024/landscape-1503418862-chicken-thighs-delish.jpg?resize=1200:*')
 }
 
 .top img{
