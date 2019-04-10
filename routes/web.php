@@ -21,10 +21,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/userfridge', 'UserController@index');
 Route::get('/userfridge/{user}', 'UserController@show');
+Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
+Route::get('/userfridge/deleteFavRecipe/{id}', 'UserCOntroller@removeFavRecipe');
+Route::post('/userfridge/addFavIngredient/', 'UserController@addFavIngredient');
+Route::get('/userfridge/addFavRecipe/{name}', 'UserController@addFavRecipe');
 
 Route::post('/recipes/byName', 'RecipesController@searchByName');
 Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
 Route::get('/recipes/{id}', 'RecipesController@index');
+
 
 Auth::routes();
 

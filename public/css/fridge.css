@@ -58,7 +58,7 @@ body{
     font-size: 20px;
     border-radius: 50vh;
     width: 35%;
-    height: auto;
+    height:8vh;
     margin-top:2%;
     margin-bottom: 2%;
     margin-right:0;
@@ -174,11 +174,13 @@ body{
 }
   
 .closebtn-fridge:hover {
-    color: white;
+    color: silver;
+    text-decoration: none;
 }
 
 .favbtn:hover {
-    color: white;
+    color: silver;
+    text-decoration: none;
 }
 
 .recipes-fridge{

@@ -86,4 +86,26 @@ class UserController extends Controller
     {
         //
     }
+
+    public function removeFavIngredient(int $id){
+
+    }
+
+    public function removeFavRecipe(int $id){
+
+    }
+
+    public function addFavIngredient(Request $request){
+        $request->validate([
+            'ingredient'=>'required'
+          ]);
+          $ingredient = new Ingredient([
+            'id' => $request->get('Comment'),
+            'name' => $request->get('ingredient'),
+          ]);
+          $ingredient->save();
+          $param = $request->get('book_id');
+          return redirect()->route('comments.show', [$param]);
+    }
+
 }
