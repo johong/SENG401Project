@@ -34,17 +34,15 @@
         {{-- </form> --}}
         </div> -->
             <div class = "section-name-fridge">
-                <ul >
-                    <li>
+                
                         <div class = "search-ingredients-fridge">{{-- <form action="./results.html"> --}}
-                        <div class="header-fridge"><h1 id="section">Shiv's Fridge</h1></div>    
+                        <div class="header-fridge"><h1 id="section">Lucas Longarini's Fridge</h1></div>    
                         
                              <input id = "field-fridge" type="text" placeholder="Search for ingredients...">
                              <button id="send-fridge" class="circle-button-fridge" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
                                 {{-- </form> --}}
                         </div>
-                    </li>
-                </ul>
+         
             </div>
 
             

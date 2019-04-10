@@ -64,16 +64,23 @@ body{
     margin-right:0;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
+    width: 70%;
 }
 
 .section-name-fridge{
-    float:center;
     margin-top: 2.5%;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    vertical-align: center;
+    text-align: left;
+    margin-left: 2%;
+    width: 50%;
 }
 
-.section-name-fridge ul{
+/* .section-name-fridge ul{
     margin:0;
     text-align: left;
     list-style: none;
@@ -81,7 +88,7 @@ body{
 
 .section-name-fridge li{
     margin:0;
-}
+} */
 
 .side-bar{
     /* display: table-cell; */
