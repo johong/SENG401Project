@@ -186,7 +186,8 @@ body{
 .grid-fridge{
     display: grid;
     grid-gap: 24px;
-    grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(18%, 1fr)); */
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     justify-content: center;
     margin-left:25%;
