@@ -14,7 +14,7 @@ class CreateIngredientsTable extends Migration
     public function up()
     {
         Schema::create('ingredients', function (Blueprint $table) {
-            $table->bigInteger('id')->unique();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
