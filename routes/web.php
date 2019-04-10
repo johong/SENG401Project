@@ -19,10 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/userfridge/{user}', 'UserController@show');
 Route::get('/userfridge', 'UserController@index');
-Route::get('/recipes/name/{recipeName}', 'RecipesController@searchByName');
-Route::post('/recipes/ingredients', 'RecipesController@searchByIngredients');
+Route::get('/userfridge/{user}', 'UserController@show');
+
+Route::get('/recipes/byName', 'RecipesController@searchByName');
+Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
 Route::get('/recipes/{id}', 'RecipesController@index');
 
 Auth::routes();

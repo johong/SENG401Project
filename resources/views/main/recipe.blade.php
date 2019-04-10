@@ -19,9 +19,25 @@
             <p>Servings: {{$recipe['servings']}}</p>
             <a href="{{$recipe['sourceUrl']}}">{{$recipe['sourceUrl']}}</a>
             <div class="tags">
-                <div class="tag">Popular</div>
-                <div class="tag">Gluten free</div>
-                <div class="tag">Low fat</div>
+                @if($recipe['vegetarian'])
+                    <div class="tag">Vegetarian</div>
+                @endif
+
+                @if($recipe['vegan'])
+                    <div class="tag">Vegan</div>
+                @endif
+
+                @if($recipe['glutenFree'])
+                    <div class="tag">Gluten Free</div>
+                @endif
+
+                @if($recipe['dairyFree'])
+                    <div class="tag">Dairy Free</div>
+                @endif
+
+                @if($recipe['veryPopular'])
+                    <div class="tag">Popular</div>
+                @endif
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
             <h1>Search for recipe</h1>
             <div class = "form">
                 <input id = "field" type="text" placeholder="Search for recipe by ingredients...">
-                <form method="POST" action="/recipes/ingredients">
+                <form method="POST" action="/recipes/byIngredients">
                     {{ csrf_field() }}
                     <button id="send" class="circle-button" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
 
@@ -31,4 +31,3 @@
 
     </div>
 @endsection
-
