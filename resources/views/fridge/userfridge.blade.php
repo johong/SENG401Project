@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,7 +9,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <script src="main.js"></script>
     </head>
-        <body > 
+        <body >  -->
+        @extends('layouts.app')
+@section('content')
+
         <div class= "side-bar-container">
         <!-- style="background-image:url({{asset('Images/green.jpg')}})"> -->
         <!-- <div class="bg-image" ></div> -->
@@ -154,7 +157,8 @@
 
 
             </div>
-        </body>
+
+        @endsection
 
         <!-- <footer>
         <div class="pagination">
