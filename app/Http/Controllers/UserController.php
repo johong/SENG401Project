@@ -7,6 +7,7 @@ use App\Ingredient;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Recipe;
 
 class UserController extends Controller
 {
@@ -112,13 +113,20 @@ class UserController extends Controller
             'name' => $request->get('ingredient'),
           ]);
           $user->ingredients()->save($ingredient);
-            show();
+        show();
     }
 
     public function addFavRecipe(Request $request){
-        $recipe = new Recipe([
+        $user = Auth::User();
 
+        $recipe = new Recipe([
+            'id'=>$request->get('id'),
+            'name' => $request->get('name'),
+            'image_url'=>$request->get('image')
         ]);
+
+        $user->recipes()->save($recipe);
+        return redirect()->back();
     }
 
 }

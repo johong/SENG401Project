@@ -41,16 +41,24 @@
             </div>
 
         {{-- IF logged in user doenst have it saved --}}
-        <form mehtod="POST" action="/userfridge/addFavRecipe/">
-            {{ csrf_field() }}
-            <button type="submit" id="fav">Add to favourits</button>
-            <input type="hidden" name="id" value="{{$recipe['id']}}">
-            <input type="hidden" name="name" value="{{$recipe['name']}}">
-            <input type="hidden" name="image" value="{{$recipe['image']}}">
-        </form>
+        @if($user==true)
+            @if($fav==true)
+                <form method="POST" action="/userfridge/deleteFavRecipe/">
+                    {{ csrf_field() }}
+                    <button class = "remove" type="submit" id="fav">Remove from favorites</button>
+                    <input type="hidden" name="id" value="{{$recipe['id']}}">
+                </form>
+            @else
+                <form method="POST" action="/userfridge/addFavRecipe/">
+                    {{ csrf_field() }}
+                    <button class = "add" type="submit" id="fav">Add to favorites</button>
+                    <input type="hidden" name="id" value="{{$recipe['id']}}">
+                    <input type="hidden" name="name" value="{{$recipe['name']}}">
+                    <input type="hidden" name="image" value="{{$recipe['image']}}">
+                </form>
+            @endif
+        @endif
 
-        {{-- If user does have it saved --}}
-        {{-- stuff here --}}
         </div>
     </div>
 

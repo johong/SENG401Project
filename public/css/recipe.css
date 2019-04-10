@@ -61,7 +61,6 @@ body{
 #fav{
     margin-top: 10px;
     border-radius: 100vh;
-    background-color: rgb(224, 77, 77);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -69,6 +68,14 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.add{
+    background-color: rgb(82, 224, 77);
+}
+
+.remove{
+    background-color: rgb(224, 77, 77);
 }
 
 .info a{
