@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recipes;
-// use Unirest\Request;
+use Unirest;
 use Illuminate\Http\Request;
 
 class RecipesController extends Controller
@@ -17,8 +17,8 @@ class RecipesController extends Controller
     {
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" . $recipeID . "/information";
       //
-      // $responseObject = Request::get($url, array(
-      //       "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //       "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
       //
       // $recipe = $responseObject->body;
@@ -29,6 +29,7 @@ class RecipesController extends Controller
       // $recipeInfo['readyInMinutes'] = $recipe->readyInMinutes;
       // $recipeInfo['servings'] = $recipe->servings;
       // $recipeInfo['sourceUrl'] = $recipe->spoonacularSourceUrl;
+      // // NOTE: instructions can be NULL
       // $recipeInfo['instructions'] = $recipe->instructions;
       //
       // $ingredients = [];
@@ -39,6 +40,7 @@ class RecipesController extends Controller
       //
       //   array_push($ingredients, $nextIngredient);
       // }
+      //
       // $recipeInfo['ingredients'] = $ingredients;
 
 
@@ -88,17 +90,17 @@ class RecipesController extends Controller
     {
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" . $recipeID . "/similar";
       //
-      // $responseObject = Request::get($url, array(
-      //   "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //   "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
       //
       // $similarRecipes = [];
       // foreach($responseObject->body as $recipe) {
-      //   $newRecipe['name'] = 'title';
-      //   $newRecipe['image'] = 'image';
-      //   $newRecipe['id'] = 'id';
-      //   $newRecipe['servings'] = 'servings';
-      //   $newRecipe['readyInMinutes'] = 'readyInMinutes';
+      //   $newRecipe['name'] = $recipe->title;
+      //   $newRecipe['image'] = $recipe->image;
+      //   $newRecipe['id'] = $recipe->id;
+      //   $newRecipe['servings'] = $recipe->servings;
+      //   $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
       //
       //   array_push($similarRecipes, $newRecipe);
       // }
@@ -168,7 +170,7 @@ class RecipesController extends Controller
         //
     }
 
-    public function searchByName(Request $name)
+    public function searchByName()
     {
         // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
         //
@@ -178,7 +180,7 @@ class RecipesController extends Controller
         // // Number of results to skip?
         // $url = $url . "&offset=0";
         //
-        // $responseObject = Request::get($url, array(
+        // $responseObject = Unirest\Request::get($url, array(
         //       "X-RapidAPI-Key" => "Your Spoonacular API Key"
         // ));
         //
@@ -215,19 +217,21 @@ class RecipesController extends Controller
         return view('main/results', ['recipes'=>$recipes]);
     }
 
-    public function searchByIngredients(Request $request)
+    public function searchByIngredients()
     {
-      //$ingredients needs updating based on how we plan on sending arguments
+      // $ingredientsList = request()->request;
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
       //
       // // API needs ingredients separated by '%2C' rather than commas.
-      // for($i = 0; $i < sizeof($ingredientsArray); $i++) {
-      //   $url = $url . $ingredientsArray[$i];
-      //
-      //   if(!(($i + 1) == sizeof($ingredientsArray))) {
-      //     $url = $url . '%2C';
+      // foreach($ingredientsList as $ingredient) {
+      //   // Only way I could find to avoid _token in request
+      //   if (!(strlen($ingredient) > 30)) {
+      //     $url = $url . $ingredient . '%2C';
       //   }
       // }
+      //
+      // // Remove extra %2C at end of string
+      // $url = substr($url, 0, -3);
       //
       // // Add optional parameters
       // // Max number of recipes to get
@@ -237,10 +241,9 @@ class RecipesController extends Controller
       // // Ignore typical pantry ingredients like water, flour, salt, etc.
       // $url = $url . "&ignorePantry=true";
       //
-      // $responseObject = Request::get($url, array(
-      //   "X-RapidAPI-Key" => "Your Spoonacular API Key"
+      // $responseObject = Unirest\Request::get($url, array(
+      //   "X-RapidAPI-Key" => "YOUR API KEY"
       // ));
-      // $responseObject = $request->input($url, array("X-RapidAPI-Key" => "7eb1af4721msh8cf968b543c0dadp154b16jsnf4d778c4542d"));
       //
       // $recipeArray = $responseObject->body;
       // $recipes['type'] = 'ingredients';
@@ -260,9 +263,6 @@ class RecipesController extends Controller
       // }
 
       //FAKE DATA, Comment out everything above to avoid using API calls if you want
-    //   dd(request());
-    $inputs = array_shift($request->input());
-    
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';
