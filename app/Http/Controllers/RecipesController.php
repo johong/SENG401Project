@@ -93,7 +93,14 @@ class RecipesController extends Controller
       $recipeInfo['ingredients'] = $ingredients;
 
       $similarRecipes = $this->getSimilarRecipes($recipeID);
-      return view('/main/recipe', ['recipe' => $recipeInfo, 'similarRecipes' => $similarRecipes]);
+
+      $check = Auth::user();
+      $hasUser = false;
+      if(isset($check)){
+          $check = true;
+      }
+
+      return view('/main/recipe', ['user'=>$hasUser, 'recipe' => $recipeInfo, 'similarRecipes' => $similarRecipes]);
     }
 
     public function getSimilarRecipes($recipeID)

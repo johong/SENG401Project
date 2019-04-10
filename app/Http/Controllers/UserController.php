@@ -98,7 +98,7 @@ class UserController extends Controller
     public function addFavIngredient(Request $request){
         $request->validate([
             'ingredient'=>'required'
-          ]);
+        ]);
           $ingredient = new Ingredient([
             'id' => $request->get('Comment'),
             'name' => $request->get('ingredient'),
@@ -106,6 +106,12 @@ class UserController extends Controller
           $ingredient->save();
           $param = $request->get('book_id');
           return redirect()->route('comments.show', [$param]);
+    }
+
+    public function addFavRecipe(Request $request){
+        $recipe = new Recipe([
+
+        ]);
     }
 
 }
