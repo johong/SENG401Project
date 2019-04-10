@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Recipe;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -95,12 +96,14 @@ class UserController extends Controller
         //
     }
 
-    public function removeFavIngredient(int $id){
+    public function removeFavIngredient(Request $request){
 
     }
 
-    public function removeFavRecipe(int $id){
-
+    public function removeFavRecipe(Request $request){
+        $recipeId = $request->get('id');
+        DB::table('recipe_user')->where('recipe_id', '=', $recipeId)->where('user_id', '=', Auth::User()->id)->delete();
+        return redirect()->back();
     }
 
     public function addFavIngredient(Request $request){
