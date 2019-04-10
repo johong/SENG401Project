@@ -32,11 +32,11 @@
                     @if($recipe == 'ingredients')
                         @continue
                     @endif
-                    <div class="recipe" onclick="window.open('../{{$recipe['id']}}','_self');">
+                    <div class="recipe" onclick="window.open('./{{$recipe['id']}}','_self');">
                         <img src="{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>
-                            <p class="prepTime">Missed Ingredients:
+                            <p class="missedIngredients">Missed Ingredients:
                               @foreach($recipe['missedIngredients'] as $ingredient)
                                   @if($loop->last)
                                       {{$ingredient}}

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Recipes;
-use Unirest\Request;
+// use Unirest\Request;
+use Illuminate\Http\Request;
 
 class RecipesController extends Controller
 {
@@ -214,7 +215,7 @@ class RecipesController extends Controller
         return view('main/results', ['recipes'=>$recipes]);
     }
 
-    public function searchByIngredients(Request $ingredients)
+    public function searchByIngredients(Request $request)
     {
       //$ingredients needs updating based on how we plan on sending arguments
       // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
@@ -259,7 +260,9 @@ class RecipesController extends Controller
       // }
 
       //FAKE DATA, Comment out everything above to avoid using API calls if you want
-      echo("$ingredients");
+    //   dd(request());
+    $inputs = array_shift($request->input());
+    
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';

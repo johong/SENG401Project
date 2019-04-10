@@ -18,16 +18,23 @@ recipe.addEventListener('click', ()=>{
 //add ingredient
 document.getElementById('field').addEventListener('keyup', (event)=>{
     if(event.keyCode == 13){
+        var ingredientName =  document.getElementById('field').value;
+
         var list = document.getElementsByClassName('ingredient-list')[0];
         var newNode = document.createElement('div');
         newNode.className = "ingredient";
         var newP = document.createElement('p');
-        newP.innerHTML = document.getElementById('field').value;
+        var field = document.createElement('input');
+        field.name = ingredientName;
+        field.value = ingredientName;
+        field.style = "display:none;"
+        newP.innerHTML = ingredientName;
         newP.className = "ing";
         var newSpan = document.createElement('span');
         newSpan.innerHTML = "&times;";
         newSpan.className = "closebtn";
         newSpan.setAttribute('onclick', 'this.parentElement.remove();');
+        newNode.appendChild(field);
         newNode.appendChild(newP);
         newNode.appendChild(newSpan);
         list.appendChild(newNode);
@@ -46,23 +53,6 @@ $(document).ready(function(){
         for(var i = 0; i<ingredientsHtml.length; i++){
             ingredients[i] = ingredientsHtml[i].innerHTML;
         }
-        
-        $("#send").click(function(){
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/recipes/ingredients',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: { _token: CSRF_TOKEN, message:$(".getinfo").val(),
-                        ingredients: ingredients
-                },
-                dataType: 'JSON',
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) { 
-                    console.log("success");
-                }
-            }); 
-        });
     }
 }); 
 
