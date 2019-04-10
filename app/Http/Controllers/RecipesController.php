@@ -180,49 +180,59 @@ class RecipesController extends Controller
         //
     }
 
-    public function searchByName()
+    public function searchByName(Request $request)
     {
+        // $name = $request->all()['name'];
         // $url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" . $name;
-        //
+        
         // // Add optional parameters
         // // Max number of recipes to get
-        // $url = $url . "&number=5";
+        // $url = $url . "&number=2";
         // // Number of results to skip?
         // $url = $url . "&offset=0";
-        //
+        
         // $responseObject = Unirest\Request::get($url, array(
-        //       "X-RapidAPI-Key" => "Your Spoonacular API Key"
+        //       "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
         // ));
-        //
+
+        $response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=2&offset=0&type=main+course&query=chicken",
+  array(
+    "X-RapidAPI-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    "X-RapidAPI-Key" => "a09ae75070mshe42e561d2a748d2p1297d5jsn3ab89027f42a"
+  )
+);
+        
+        dd($response);
+
         // $recipeArray = $responseObject->body->results;
         // $recipes['type'] = 'name';
-        //
+        
         // foreach ($recipeArray as $recipe) {
         //   $newRecipe['name'] = $recipe->title;
         //   $newRecipe['image'] = $recipe->image;
         //   $newRecipe['id'] = $recipe->id;
         //   $newRecipe['readyInMinutes'] = $recipe->readyInMinutes;
         //   $newRecipe['servings'] = $recipe->servings;
-        //
+        
         //   array_push($recipes, $newRecipe);
         // }
 
 
         //FAKE DATA, Comment out everything above to avoid using API calls if you want
-        $recipes['type'] = 'name';
-        $recipe['name'] = 'Chicken Spinoccoli – Breaded Stuffed Chicken Breast With Spinach, Broccoli and Cheese';
-        $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
-        $recipe['readyInMinutes'] = 65;
-        $recipe['servings'] = 4;
-        $recipe['id'] = 485365;
-        array_push($recipes, $recipe);
+        // $recipes['type'] = 'name';
+        // $recipe['name'] = 'ILIKEASS Spinoccoli – Breaded Stuffed Chicken Breast With Spinach, Broccoli and Cheese';
+        // $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
+        // $recipe['readyInMinutes'] = 65;
+        // $recipe['servings'] = 4;
+        // $recipe['id'] = 485365;
+        // array_push($recipes, $recipe);
 
-        $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
-        $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
-        $recipe['readyInMinutes'] = 45;
-        $recipe['servings'] = 10;
-        $recipe['id'] = 762877;
-        array_push($recipes, $recipe);
+        // $recipe['name'] = 'Jerk Chicken (Grilled Spicy Marinated Chicken)';
+        // $recipe['image'] = 'https://spoonacular.com/recipeImages/484157-312x231.jpg';
+        // $recipe['readyInMinutes'] = 45;
+        // $recipe['servings'] = 10;
+        // $recipe['id'] = 762877;
+        // array_push($recipes, $recipe);
 
         return view('main/results', ['recipes'=>$recipes]);
     }
@@ -272,7 +282,7 @@ class RecipesController extends Controller
       //   array_push($recipes, $newRecipe);
       // }
 
-      //FAKE DATA, Comment out everything above to avoid using API calls if you want
+      //FAKE DATA, Comment out everything above to avoid using API calls if you want      
       $recipes['type'] = 'ingredients';
 
       $recipe['name'] = 'Thyme-roasted Chicken with Potatoes';

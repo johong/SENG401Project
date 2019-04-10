@@ -19,9 +19,15 @@ recipe.addEventListener('click', ()=>{
     }
 })
 
+document.getElementById('send').addEventListener('click', ()=>{
+    if(recipe.className="selected"){
+        document.getElementById('search-form').action = "/recipes/byName?name="+document.getElementById('field').value
+    }
+})
+
 //add ingredient
 document.getElementById('field').addEventListener('keyup', (event)=>{
-    if(event.keyCode == 13){
+    if(event.keyCode == 13 && ingredient.className=='selected'){
         var ingredientName =  document.getElementById('field').value;
         if(!ingredientName || ingredientName=="")return;
 
