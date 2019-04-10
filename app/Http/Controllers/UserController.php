@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-<<<<<<< HEAD
 use App\Ingredient;
-=======
->>>>>>> c88deaed9999ed829995d69d676b321b5880744b
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,12 +18,12 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::User();
-        $ingredients=$user->ingredients()->pluck('ingredients.name')->toArray();
-        $recipe_ids=$user->recipes()->pluck('recipes.id')->toArray();
-        $recipe_names=$user->recipes()->pluck('recipes.name')->toArray();
-        $recipe_images=$user->recipes()->pluck('recipe.image_url')->toArray();
+        $ingredients=$user->ingredients()->get();//pluck('ingredients.name')->toArray();
+        $recipes=$user->recipes()->get()->toArray();
+        // $recipe_names=$user->recipes()->pluck('recipes.name')->toArray();
+        // $recipe_images=$user->recipes()->pluck('recipes.image_url')->toArray();
         
-        return view ('fridge/userfridge',compact('ingredients','recipe_ids','recipe_names','recipe_images'));
+        return view ('fridge/userfridge',compact('ingredients','recipes'));//,'recipe_names','recipe_images'));
     }
 
     /**
@@ -115,7 +112,7 @@ class UserController extends Controller
             'name' => $request->get('ingredient'),
           ]);
           $user->ingredients()->save($ingredient);
-            show();
+          return redirect()->action('UserController@index');
     }
 
 }
