@@ -35,7 +35,8 @@
         </div> -->
                 <div class = "section-name-fridge">
                         <div class = "search-ingredients-fridge">
-                            <form method="GET" action="/userfridge/addFavIngredient/">
+                            <form method="POST" action="/userfridge/addFavIngredient">
+                            {{ csrf_field() }}
                             <div class="header-fridge"><h1 id="section">Lucas Longarini's Fridge</h1></div>    
                              <input id = "field-fridge" name="ingredient" type="text" placeholder="Search for ingredients to add to your fridge...">
                              <button id="send-fridge" class="circle-button-fridge" type="submit"><img src="{{asset('Images/searchIcon.png')}}" alt="Search"></button>
