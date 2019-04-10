@@ -20,7 +20,7 @@ recipe.addEventListener('click', ()=>{
 })
 
 document.getElementById('send').addEventListener('click', ()=>{
-    if(recipe.className="selected"){
+    if(recipe.className=="selected"){
         document.getElementById('search-form').action = "/recipes/byName?name="+document.getElementById('field').value
     }
 })
