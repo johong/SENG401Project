@@ -52,7 +52,6 @@
     <div class="ingredient-container">
         <h1>Similar</h1>
         <div class="ingredients">
-
             @foreach($similarRecipes as $similarRecipe)
                 <div class="ingredient">
                     <div class="img-container">
@@ -64,57 +63,6 @@
                     </div>
                 </div>
             @endforeach
-
-            <div class="ingredient">
-                <div class="img-container">
-                    <img src="https://static.euronews.com/articles/3327954/1280x720_3327954.jpg" alt=""  />
-                </div>
-                <div class="ingredient-details">
-                    <h6>Peppers</h6>
-                    <p>serving</p>
-                </div>
-            </div>
-
-            <div class="ingredient">
-                <div class="img-container">
-                    <img src="https://static.euronews.com/articles/3327954/1280x720_3327954.jpg" alt=""  />
-                </div>
-                <div class="ingredient-details">
-                    <h6>Peppers</h6>
-                    <p>serving</p>
-                </div>
-            </div>
-
-            <div class="ingredient">
-                <div class="img-container">
-                    <img src="https://static.euronews.com/articles/3327954/1280x720_3327954.jpg" alt=""  />
-                </div>
-                <div class="ingredient-details">
-                    <h6>Peppers</h6>
-                    <p>serving</p>
-                </div>
-            </div>
-
-            <div class="ingredient">
-                <div class="img-container">
-                    <img src="https://static.euronews.com/articles/3327954/1280x720_3327954.jpg" alt=""  />
-                </div>
-                <div class="ingredient-details">
-                    <h6>Peppers</h6>
-                    <p>serving</p>
-                </div>
-            </div>
-
-            <div class="ingredient">
-                <div class="img-container">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg" alt=""  />
-                </div>
-                <div class="ingredient-details">
-                    <h6>Peppers</h6>
-                    <p>serving</p>
-                </div>
-            </div>
-
         </div>
     </div>
 
