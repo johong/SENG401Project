@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+<<<<<<< HEAD
 use App\Ingredient;
+=======
+>>>>>>> c88deaed9999ed829995d69d676b321b5880744b
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,8 +20,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        return view ('fridge/userfridge');
+        $user = Auth::User();
+        $ingredients=$user->ingredients()->pluck('ingredients.name')->toArray();
+        $recipe_ids=$user->recipes()->pluck('recipes.id')->toArray();
+        $recipe_names=$user->recipes()->pluck('recipes.name')->toArray();
+        $recipe_images=$user->recipes()->pluck('recipe.image_url')->toArray();
+        
+        return view ('fridge/userfridge',compact('ingredients','recipe_ids','recipe_names','recipe_images'));
     }
 
     /**

@@ -27,7 +27,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/userfridge', 'UserController@index');
-Route::get('/userfridge/{user}', 'UserController@show');
+// Route::get('/userfridge/{user}', 'UserController@show');
 Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
 Route::get('/userfridge/deleteFavRecipe/{id}', 'UserCOntroller@removeFavRecipe');
 
