@@ -124,19 +124,6 @@
                                 <p class="servings-fridge">Servings: 420</p>
                             </div>
                         </div>
-                        <div class="recipe-info-fridge">
-                            <img src="https://ohsheglows.com/wp-content/uploads/2017/02/10minuteveganpasta-6481.jpg" alt="pasta">
-                            <div class="favbtn">
-                                <span >
-                                    &hearts;
-                                </span> 
-                            </div>
-                            <div class="recipe-title-fridge">
-                                <p class="name-fridge">This recipe </p>
-                                <p class="prepTime-fridge">Ready in: 69 mins</p>
-                                <p class="servings-fridge">Servings: 420</p>
-                            </div>
-                        </div>
                         
                     </div>
             </div>
