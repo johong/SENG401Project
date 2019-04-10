@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Ingredient;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -96,16 +98,16 @@ class UserController extends Controller
     }
 
     public function addFavIngredient(Request $request){
+        $user = Auth::User();
+        
         $request->validate([
             'ingredient'=>'required'
           ]);
           $ingredient = new Ingredient([
-            'id' => $request->get('Comment'),
             'name' => $request->get('ingredient'),
           ]);
-          $ingredient->save();
-          $param = $request->get('book_id');
-          return redirect()->route('comments.show', [$param]);
+          $user->ingredients()->save($ingredient);
+            show();
     }
 
 }
