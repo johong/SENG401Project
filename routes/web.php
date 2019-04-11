@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/userfridge', 'UserController@index');
 // Route::get('/userfridge/{user}', 'UserController@show');
 Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
+Route::get('/userfridge/deleteFavRecipeFridge/{id}', 'UserCOntroller@removeFavRecipeFridge');
 Route::post('/userfridge/deleteFavRecipe/', 'UserCOntroller@removeFavRecipe');
 
 Route::post('/userfridge/addFavIngredient/', 'UserController@addFavIngredient');

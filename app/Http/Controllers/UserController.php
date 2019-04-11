@@ -96,8 +96,16 @@ class UserController extends Controller
         //
     }
 
-    public function removeFavIngredient(Request $request){
+    public function removeFavIngredient(String $id){
+        $ingredientId = (int)$id;
+        DB::table('ingredient_user')->where('ingredient_id', '=', $ingredientId)->where('user_id', '=', Auth::User()->id)->delete();
+        return redirect()->action('UserController@index');
+    }
 
+    public function removeFavRecipeFridge(String $id){
+        $recipeId = (int)$id;
+        DB::table('recipe_user')->where('recipe_id', '=', $recipeId)->where('user_id', '=', Auth::User()->id)->delete();
+        return redirect()->action('UserController@index');
     }
 
     public function removeFavRecipe(Request $request){

@@ -64,7 +64,7 @@
                             <img src="{{ $recipe->image_url}}" alt="pasta">
                             <div class="favbtn">
                                 <span >
-                                <a class="favbtn" href="{{url('/userfridge/deleteFavRecipe/$recipe->id')}}">&hearts;</a>
+                                <a class="favbtn" href="{{url('/userfridge/deleteFavRecipeFridge/$recipe->id')}}">&hearts;</a>
                                 </span> 
                             </div>
                             <div class="recipe-title-fridge">
