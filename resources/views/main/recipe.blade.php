@@ -11,6 +11,7 @@
 <body> -->
 @extends('layouts.app')
 @section('content')
+<script src="{{asset('js/recipe.js')}}" defer></script>
 <link rel="stylesheet" href="{{asset('css/recipe.css')}}">
     <div class="top">
         <div class="img">
@@ -106,5 +107,4 @@
     </div>
     @endsection
 <!-- </body>
-<script src="{{asset('js/recipe.js')}}"></script>
 </html> -->

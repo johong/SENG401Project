@@ -12,6 +12,7 @@
 @extends('layouts.app')
 @section('content')
 <link rel="stylesheet" href="{{asset('css/results.css')}}">
+<br><br>
     <div class = "container">
         <h1>Results</h1>
         <div class="grid">
@@ -55,16 +56,6 @@
             @endif
         </div>
 
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
     </div>
     @endsection
 <!-- </body>
