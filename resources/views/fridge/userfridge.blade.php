@@ -12,7 +12,7 @@
         <body >  -->
         @extends('layouts.app')
 @section('content')
-
+<link rel="stylesheet" href="{{asset('css/fridge.css')}}">
         <div class= "side-bar-container-fridge">
                 <div class = "section-name-fridge">
                         <div class = "search-ingredients-fridge">

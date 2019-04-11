@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Results</title>
 </head>
-<body>
+<body> -->
+@extends('layouts.app')
+@section('content')
+<link rel="stylesheet" href="{{asset('css/results.css')}}">
     <div class = "container">
         <h1>Results</h1>
         <div class="grid">
@@ -63,6 +66,6 @@
             <a href="#">&raquo;</a>
         </div>
     </div>
-
-</body>
-</html>
+    @endsection
+<!-- </body>
+</html> -->
