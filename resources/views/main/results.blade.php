@@ -25,7 +25,7 @@
                         <img src="https://spoonacular.com/recipeImages/{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>
-                            <p class="prepTime">Ready In: {{$recipe['readyInMinutes']}}mins</p>
+                            <p class="prepTime">Ready In: {{$recipe['readyInMinutes']}} minutes</p>
                             {{-- <p class="servings">Servings: {{$recipe['servings']}}</p> --}}
                         </div>
                     </div>
