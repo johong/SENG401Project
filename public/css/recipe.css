@@ -176,3 +176,9 @@ body{
     width: 80%;
     margin: 100px auto;
 }
+
+.list{
+    font-size: 24px;
+    color: grey;
+    font-weight: 300;
+}

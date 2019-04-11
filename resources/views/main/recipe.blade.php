@@ -80,9 +80,9 @@
         </div>
     </div>
 
-    <div class = "instructions">
+    <div id="fml" class = "instructions">
         <h1>Instructions</h1>
-        <p>{{$recipe['instructions']}}</p>
+        <p id="inst">{{$recipe['instructions']}}</p>
     </div>
 
     <div class="ingredient-container">
@@ -103,4 +103,5 @@
     </div>
 
 </body>
+<script src="{{asset('js/recipe.js')}}"></script>
 </html>
