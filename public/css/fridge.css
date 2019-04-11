@@ -264,6 +264,10 @@ body{
     color: rgb(148, 148, 148);
 }
 
+.other{
+    text-align: center;
+}
+
 .pagination{
     position:fixed;
     float:center;

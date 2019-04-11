@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="{{asset('css/recipe.css')}}">
     <title>Recipe</title>
 </head>
-<body>
+<body> -->
+@extends('layouts.app')
+@section('content')
+<script src="{{asset('js/recipe.js')}}" defer></script>
+<link rel="stylesheet" href="{{asset('css/recipe.css')}}">
     <div class="top">
         <div class="img">
             <img src="{{$recipe['image']}}" alt="{{$recipe['image']}}">
@@ -101,7 +105,6 @@
             @endforeach
         </div>
     </div>
-
-</body>
-<script src="{{asset('js/recipe.js')}}"></script>
-</html>
+    @endsection
+<!-- </body>
+</html> -->

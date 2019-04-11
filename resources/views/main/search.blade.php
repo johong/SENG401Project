@@ -1,6 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="{{asset('css/search.css')}}">
 <div class="bg-image" style="background-image:url({{asset('Images/indexBackground.jpg')}})"></div>
     <div class = "center">
         <div class="tab">
