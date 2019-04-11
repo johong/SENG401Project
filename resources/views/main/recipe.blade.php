@@ -104,7 +104,7 @@
             @endforeach
         </div>
     </div>
-
+    @endsection
 <!-- </body>
 <script src="{{asset('js/recipe.js')}}"></script>
 </html> -->

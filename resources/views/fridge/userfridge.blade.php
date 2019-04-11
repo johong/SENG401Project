@@ -40,7 +40,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div>
+                        <div class="other">
                             <p>
                                 No Favourite Ingredients yet :(
                             </p>
@@ -69,13 +69,13 @@
                             </div>
                             <div class="recipe-title-fridge">
                                 <p class="name-fridge">{{$recipe->name}} </p>
-                                <p class="prepTime-fridge">{{$recipe->id}}</p>
-                                <p class="servings-fridge">Servings: 420</p>
+                                <!-- <p class="prepTime-fridge">{{$recipe->id}}</p>
+                                <p class="servings-fridge">Servings: 420</p> -->
                             </div>
                         </div>
                         @endforeach
                         @else
-                        <div>
+                        <div class="other">
                             <p>No Favourite Recipes yet :(</p>
                             <p>Add Some!</p>
                         </div>

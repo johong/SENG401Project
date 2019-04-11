@@ -100,6 +100,7 @@ class UserController extends Controller
         $ingredientId = (int)$id;
         // dd($id);
         DB::table('ingredient_user')->where('ingredient_id', '=', $ingredientId)->where('user_id', '=', Auth::User()->id)->delete();
+        DB::table('ingredients')->where('id', '=', $ingredientId)->delete();
         return redirect()->action('UserController@index');
     }
 
@@ -107,12 +108,14 @@ class UserController extends Controller
         $recipeId = (int)$id;
         // dd($id);
         DB::table('recipe_user')->where('recipe_id', '=', $recipeId)->where('user_id', '=', Auth::User()->id)->delete();
+        DB::table('recipes')->where('id', '=', $recipeId)->delete();
         return redirect()->action('UserController@index');
     }
 
     public function removeFavRecipe(Request $request){
         $recipeId = $request->get('id');
         DB::table('recipe_user')->where('recipe_id', '=', $recipeId)->where('user_id', '=', Auth::User()->id)->delete();
+        DB::table('recipes')->where('id', '=', $recipeId)->delete();
         return redirect()->back();
     }
 
