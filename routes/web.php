@@ -26,14 +26,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/userfridge', 'UserController@index');
-// Route::get('/userfridge/{user}', 'UserController@show');
-Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
-Route::get('/userfridge/deleteFavRecipeFridge/{id}', 'UserCOntroller@removeFavRecipeFridge');
-Route::post('/userfridge/deleteFavRecipe/', 'UserCOntroller@removeFavRecipe');
+// Route::get('pages/mainpage', ['middleware' => 'auth', 'uses' => 'FooController@index']);
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/userfridge', 'UserController@index');
+    Route::get('/userfridge/deleteFavIngredient/{id}', 'UserController@removeFavIngredient');
+    Route::get('/userfridge/deleteFavRecipeFridge/{id}', 'UserController@removeFavRecipeFridge');
+    Route::post('/userfridge/deleteFavRecipe/', 'UserController@removeFavRecipe');
+    Route::post('/userfridge/addFavIngredient/', 'UserController@addFavIngredient');
+    Route::post('/userfridge/addFavRecipe/', 'UserController@addFavRecipe');
+});
 
-Route::post('/userfridge/addFavIngredient/', 'UserController@addFavIngredient');
-Route::post('/userfridge/addFavRecipe/', 'UserController@addFavRecipe');
 Route::post('/recipes/byName', 'RecipesController@searchByName');
 Route::post('/recipes/byIngredients', 'RecipesController@searchByIngredients');
 Route::get('/recipes/{id}', 'RecipesController@index');
