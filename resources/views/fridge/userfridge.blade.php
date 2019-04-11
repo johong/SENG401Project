@@ -35,7 +35,7 @@
                             </p>
                             <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
                             <span class="closebtn-fridge">
-                                <a class="closebtn-fridge" href="{{url('/userfridge/deleteFavRecipe/$ingredient->id')}}">&times;</a>
+                                <a class="closebtn-fridge" href="/userfridge/deleteFavIngredient/{{$ingredient->id}}">&times;</a>
                             </span> 
                         </div>
                         @endforeach
@@ -60,11 +60,11 @@
 
                     @if(count($recipes))
                         @foreach ($recipes as $recipe)
-                        <div class="recipe-info-fridge">
+                        <div class="recipe-info-fridge" onclick="window.open('../recipes/{{$recipe->id}}','_self');">
                             <img src="{{ $recipe->image_url}}" alt="pasta">
                             <div class="favbtn">
                                 <span >
-                                <a class="favbtn" href="{{url('/userfridge/deleteFavRecipeFridge/$recipe->id')}}">&hearts;</a>
+                                <a class="favbtn" href="/userfridge/deleteFavRecipeFridge/{{$recipe->id}}">&hearts;</a>
                                 </span> 
                             </div>
                             <div class="recipe-title-fridge">
