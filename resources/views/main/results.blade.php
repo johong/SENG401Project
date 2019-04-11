@@ -36,33 +36,14 @@
                         <img src="{{$recipe['image']}}" alt="{{$recipe['image']}}">
                         <div class = "recipe-title">
                             <p class="name" title="{{$recipe['name']}}">{{$recipe['name']}}</p>
-                            <p class="missedIngredients">Missed Ingredients:
-                              @foreach($recipe['missedIngredients'] as $ingredient)
-                                  @if($loop->last)
-                                      {{$ingredient}}
-                                      @break
-                                  @endif
-
-                                  {{$ingredient}},
-                              @endforeach
+                            <p class="missedIngredients" title="{{$recipe['missedIngredients']}}">Missed Ingredients:
+                              {{$recipe['missedIngredients']}}
                             </p>
                         </div>
                     </div>
                 @endforeach
             @endif
         </div>
-
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
-    </div>
 
 </body>
 </html>

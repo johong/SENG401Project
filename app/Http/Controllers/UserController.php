@@ -24,7 +24,7 @@ class UserController extends Controller
         $recipes=$user->recipes()->get();
         // $recipe_names=$user->recipes()->pluck('recipes.name')->toArray();
         // $recipe_images=$user->recipes()->pluck('recipes.image_url')->toArray();
-        
+
         return view ('fridge/userfridge',compact('ingredients','recipes'));//,'recipe_names','recipe_images'));
     }
 
@@ -60,7 +60,7 @@ class UserController extends Controller
         //
         return view ('fridge/userfridge');
     }
-        
+
 
     /**
      * Show the form for editing the specified resource.
@@ -118,7 +118,7 @@ class UserController extends Controller
 
     public function addFavIngredient(Request $request){
         $user = Auth::User();
-        
+
         $request->validate([
             'ingredient'=>'required'
         ]);
